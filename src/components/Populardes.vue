@@ -24,16 +24,30 @@
         </div>
     </div>
 </div>
+
+
 </section>
 </template>
  <script>
    
  export default {
-     name:'Populardes'
+     name:'Populardes',
+     data(){
+         return{
+            
+             some:function(){
+                  console.log(this.$refs.Input.value)
+             }
+         }
+     }
      }
  
 </script>
 <style>
+.img-mal{
+    width:200px;
+    height:300px;
+}
 .popular-destination{
     padding:20px 0 60px;
 }

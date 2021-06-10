@@ -1,28 +1,42 @@
 <template>
   <div id="app">
-    <Nav />
-    <Populardes />
-    <Services />
+   
+   <router-view/>
+ 
+  
   </div>
 </template>
 
 <script>
 
-import Nav from './components/Nav.vue'
-import Populardes from './components/Populardes.vue';
-import Services from './components/Services.vue';
+
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
 
 export default {
   name: 'App',
-  components: {
-    Nav,
-    Populardes,
-    Services
+  
+  data(){
+      return{
+        tourStack:[],
+
+      
+        userInput: {
+        title: "",
+        Describe: "",
+        location: "",
+      },
+        
+       add:function(){
+           this.tourStack.push(
+             this.userInput
+           )
+        }
+      
   }
-}
+ 
+}}
 AOS.init();
 </script>
 
@@ -70,6 +84,18 @@ nav{
     padding:4px 8px;
     border:none;
     outline:none;
+}
+.form{
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.popup{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (max-width:1200px){
  nav{

@@ -6,13 +6,13 @@
            </div>
            <div class="right-side">
                <a class="nav-link" href="#">Home</a>
+               <a class="nav-link active" href="#"><router-link to="/Feedback">Feedback</router-link></a>
                <a class="nav-link" href="#">Hotels</a>
-               <a class="nav-link" href="#">Flight</a>
                <a class="nav-link" href="#">Cars</a>
                <a class="nav-link" href="#">Cruises</a>
-               <a class="nav-link" href="#">Tour</a>
+               <a class="nav-link active" href="#"><router-link to="/Admin">Admin</router-link></a>
                <a class="nav-link" href="#">Pages</a>
-               <a class="nav-link" href="#">Elements</a>
+               
                <i class="fas fa-search"></i>
                <button class="book-button">Online Booking</button>
            </div>
@@ -34,5 +34,11 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-
+a{
+  color:#8f9397 !important;
+}
+.active{
+  background-color: #02cfc0;
+  padding:5px;
+}
 </style>
