@@ -7,7 +7,8 @@
            <div class="right-side">
                <a class="nav-link" href="#">Home</a>
                <a class="nav-link active" href="#"><router-link to="/Feedback">Feedback</router-link></a>
-               <a class="nav-link" href="#">Hotels</a>
+               <a class="nav-link" href="#"><router-link to="/people">People</router-link></a>
+                 
                <a class="nav-link" href="#">Cars</a>
                <a class="nav-link" href="#">Cruises</a>
                <a class="nav-link active" href="#"><router-link to="/Admin">Admin</router-link></a>
@@ -37,8 +38,5 @@ export default {
 a{
   color:#8f9397 !important;
 }
-.active{
-  background-color: #02cfc0;
-  padding:5px;
-}
+
 </style>

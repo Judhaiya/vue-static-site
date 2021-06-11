@@ -9,7 +9,7 @@
           <label for="feedback">feedback</label><br>
           <textarea v-model=" userFeedback.feedback" name="" id="" cols="30" rows="10"></textarea><br>
           <button v-on:click.prevent="add">Submit</button>
-
+      
       </form>
     </div>
     </div>
@@ -29,12 +29,16 @@ export default {
 methods:{
  add:function(){
      this.$store.state.hotel.push(this.userFeedback);
-       this.userFeedback = {
+      this.userFeedback = {
              HotelName:"",
             feedback:""
          }
- }
+ },
+
 }
+
+
+
 }
 </script>
 <style>

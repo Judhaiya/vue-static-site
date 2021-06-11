@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Feedback from "../components/Feedback"
 import Admin from "../components/Admin"
 import Home from "../components/Home"
+import People from "../components/People"
 Vue.use(VueRouter)
 
  const router= new VueRouter(
@@ -22,6 +23,11 @@ Vue.use(VueRouter)
                 path:"/",
                 component:Home,
                 name:"Home"
+            },
+            {
+                path:"/people",
+                component:People,
+                name:"People"
             },
         ]
     }
