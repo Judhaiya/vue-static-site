@@ -10,7 +10,7 @@
 
           <p>{{info.location.city }}</p>
           <p>{{info.email }}</p>
-          
+          {{imges}}
         
         </div>
       </div>
@@ -18,7 +18,7 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import axios from "axios"
 
 export default {
   data() {
@@ -29,13 +29,19 @@ export default {
     };
   },
   mounted() {
-    axios.get("https://randomuser.me/api/?results=10")
-    .then((results) => {
-      this.peopleInfo = results.data.results;
+
+   const getData= JSON.parse(localStorage.getItem('people'));
+   this.peopleInfo=getData
   
+   if(localStorage.getItem('people')==""){
+   axios.get("https://randomuser.me/api/?results=10")
+   .then(results=>results.data.results = this.peopleInfo)
+   }
      
      
-    });
+     
+     
+   
   },
 };
 </script>
