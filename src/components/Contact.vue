@@ -71,4 +71,8 @@ export default {
 
 
 }
+.contact-wrapper{
+    text-align: center;
+}
+
 </style>
