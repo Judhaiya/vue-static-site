@@ -6,12 +6,11 @@
            </div>
            <div class="right-side">
                <a class="nav-link" href="#">Home</a>
-               <a class="nav-link active" href="#"><router-link to="/Feedback">Feedback</router-link></a>
-               <a class="nav-link" href="#"><router-link to="/people">People</router-link></a>
-                 
-               <a class="nav-link" href="#">Cars</a>
-               <a class="nav-link" href="#">Cruises</a>
-               <a class="nav-link active" href="#"><router-link to="/Admin">Admin</router-link></a>
+               <a class="nav-link active" ><router-link to="/Feedback">Feedback</router-link></a>
+               <a class="nav-link" ><router-link to="/people">People</router-link></a>
+               <a href="nav-link"><router-link to="/contact">Contact</router-link></a>
+              <a class="nav-link" href="#">Cars</a>
+               <a class="nav-link active"><router-link to="/Admin">Admin</router-link></a>
                <a class="nav-link" href="#">Pages</a>
                
                <i class="fas fa-search"></i>

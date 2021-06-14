@@ -4,6 +4,7 @@ import Feedback from "../components/Feedback"
 import Admin from "../components/Admin"
 import Home from "../components/Home"
 import People from "../components/People"
+import Contact from "../components/Contact"
 Vue.use(VueRouter)
 
  const router= new VueRouter(
@@ -29,6 +30,11 @@ Vue.use(VueRouter)
                 component:People,
                 name:"People"
             },
+            {
+                path:"/contact",
+                component:Contact,
+                name:"Contact"
+            }
         ]
     }
 )
