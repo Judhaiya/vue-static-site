@@ -48,6 +48,9 @@ export default {
       this.editMode = false;
      
       
+   },
+   edi:function(){
+   this.editMode=true
    }
    
 
