@@ -2,19 +2,24 @@
     <div class="contact-wrapper">
         <h3>Add Contact</h3>
         <form action="" class="form-wrapper">
-            <input v-model="storeNum" class="add" type="text">
+            <input v-model="storeNum.contact" class="add" type="text">
             <button v-on:click.prevent="addNum" class="add">Add</button>
         </form>
-       <div v-for="(storeContact,i) in storeContacts" :Key="i" class="contact-info">
-        <p>{{storeContact}}</p>
+       <div  v-for="(storeContact,i) in storeContacts" :Key="i" class="contact-info">
+        <div   class="wrapper-for-storecontact">
+        <p>{{storeContact.contact}}</p>
         <button v-on:click="del(i)"  class="del"><i class="fas fa-user-minus"></i></button>
         <button v-on:click="edi" ><i class="fas fa-user-edit"></i></button>
-        <form v-if="editMode" action="">
-            <input v-model="beforeEdit" type="text" class="editContact"><br>
-            <button v-on:click.prevent="cancel" class="cancel">Cancel</button>
+        </div>
+        <div v-if="editMode"  class="wrapper">
+        <form action="">
+            <div  class="form-container">
+            <input v-model.lazy="storeContact.contact"  type="text" class="editContact"><br>
+            <button v-on:click.prevent="cancel(i)" class="cancel">Cancel</button>
             <button v-on:click.prevent="store" class="submit">Submit</button>
+            </div>
         </form>
-       
+        </div>
        </div>
     </div>
 </template>
@@ -25,9 +30,11 @@ export default {
    data(){
        return{
            storeContacts:[],
-           storeNum:"",
+           storeNum:{
+               contact:""
+           },
            editMode:false,
-           beforeEdit:"",
+        
            
         
 
@@ -35,24 +42,48 @@ export default {
    },
    methods:{
     addNum:function(){
-     this.storeContacts.push(this.storeNum)
-     this.storeNum=""
-     
+    if(this.storeNum.contact==""){
+       return null
+         }else{
+             this.storeContacts.push(this.storeNum);
+          this.storeNum = {
+          contact:""
+         }
+    }
     },
     del:function(i){
         this.storeContacts.splice(i)
+        console.log(i)
     },
    
    
    cancel:function(){
-      this.editMode = false;
-     
-      
+ 
+ 
+   this.editMode=false;
+   
+
+  
+/*const found=this.storeContacts.findIndex(something)*/
+  
    },
    edi:function(){
-   this.editMode=true
-   }
    
+   this.editMode=true
+  
+
+   
+   },
+   store:function(){
+    
+        this.storeNum.contact;
+          this.storeNum = {
+          contact:""
+         }
+          this.editMode=false;
+      
+    
+   }
 
 }
 }
@@ -76,6 +107,9 @@ export default {
 }
 .contact-wrapper{
     text-align: center;
+}
+.viewMode{
+    display:block;
 }
 
 </style>
