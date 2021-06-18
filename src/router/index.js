@@ -5,6 +5,7 @@ import Admin from "../components/Admin"
 import Home from "../components/Home"
 import People from "../components/People"
 import Contact from "../components/Contact"
+import Category from "../components/category"
 Vue.use(VueRouter)
 
  const router= new VueRouter(
@@ -34,6 +35,11 @@ Vue.use(VueRouter)
                 path:"/contact",
                 component:Contact,
                 name:"Contact"
+            },
+            {
+                path:"/category",
+                component:Category,
+                name:"Category"
             }
         ]
     }

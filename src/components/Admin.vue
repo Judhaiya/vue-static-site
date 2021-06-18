@@ -12,6 +12,7 @@
       
       </form>
     </div>
+    <p><router-link to="/category">Category</router-link></p>
     </div>
 </template>
 <script>
