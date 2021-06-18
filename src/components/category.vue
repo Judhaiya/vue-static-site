@@ -5,8 +5,12 @@
        <button v-on:click="showBread">bread</button>
        <button>mutton</button>
        <button>honey</button>
-       {{emptybox}}
+       {{emptyboxes}}
        {{checked}}
+       <div v-for="(emptybox,i) in emptyboxes" :key="i" class="category-array">
+        <p>{{emptybox.category}}</p>
+        
+       </div>
    </div>
 </template>
 <script>
@@ -33,7 +37,10 @@ export default {
                   brand:'red-velvet'
               }
           ],
-          emptybox:[
+          emptyboxes:[
+
+          ],
+          someArray:[
 
           ],
           checked:false
@@ -42,7 +49,8 @@ export default {
   methods:{
       showBread(){
           if(this.checked){
-       this.emptybox.push( this.array.filter(item=>item.category ==='cake'))
+       this.emptyboxes.push( this.array.filter(item=>item.category ==='cake'))
+      this.someArray.push(this.emptyboxes.map(item=>item.brand))
       }
       }
   }

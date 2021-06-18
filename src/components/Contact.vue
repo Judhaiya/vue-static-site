@@ -7,11 +7,11 @@
             <input v-model="storeNum.contact" class="add" type="text">
             <button v-on:click.prevent="addNum" class="add">Add</button>
         </form>
-       <div  v-for="(storeContact) in storeContacts" :Key="storeContact.id" class="contact-info">
+       <div  v-for="(storeContact,i) in storeContacts" :Key="i" class="contact-info">
         <div   class="wrapper-for-storecontact">
         <p>{{storeContact.contacts}}</p>
         <button v-on:click="del(storeContact.id)"  class="del"><i class="fas fa-user-minus"></i></button>
-        <button v-on:click="edi" ><i class="fas fa-user-edit"></i></button>
+        <button v-on:click="edi(storeContact.id)" ><i class="fas fa-user-edit"></i></button>
         </div>
         <div v-if="editMode"  class="wrapper">
         <form action="">
@@ -62,25 +62,26 @@ export default {
     }
     },
     del:function(i){
-        this.storeContacts.splice(i)
-        console.log(i)
-    },
-   
+          const itemIndex = this.storeContacts.findIndex(item => item.id === i)
+          this.storeContacts.splice(itemIndex,1)
+    }
+   ,
    
    cancel:function(Key){
-   const found = this.storeContacts.filter(element => element.Key === Key);
+   const found = this.storeContacts.filter(element => element.Key !== Key);
  console.log(found)
    if(found)
-   {this.editMode=!this.editmode}
+   {this.editMode=false}
    
 
   
 /*const found=this.storeContacts.findIndex(something)*/
   
    },
-   edi:function(){
-   
-   this.editMode=true
+   edi:function(Key){
+    const found = this.storeContacts.filter(element => element.id === Key)
+   if (found)
+   {this.editMode=true}
   
 
    
