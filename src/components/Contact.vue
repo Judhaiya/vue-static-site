@@ -1,6 +1,6 @@
 <template>
     <div class="contact-wrapper">
-     
+
        {{storeContacts}}
         <h3>Add Contact</h3>
         <form action="" class="form-wrapper">
@@ -8,23 +8,24 @@
             <button v-on:click.prevent="addNum" class="add">Add</button>
         </form>
        <div  v-for="(storeContact,i) in storeContacts" :Key="i" class="contact-info">
-        <div   class="wrapper-for-storecontact">
-        <p>{{storeContact.contacts}}</p>
+        <div  class="wrapper-for-storecontact">
+        <p>{{storeContact.contact}}</p>
         <button v-on:click="del(storeContact.id)"  class="del"><i class="fas fa-user-minus"></i></button>
         <button v-on:click="edi(storeContact.id)" ><i class="fas fa-user-edit"></i></button>
         </div>
-        <div v-if="editMode"  class="wrapper">
+        <div   class="wrapper">
         <form action="">
-            <div  class="form-container">
+            <div  v-if="editMode"  class="form-container">
             <input v-model.lazy="storeContact.contact"  type="text" class="editContact"><br>
             <button v-on:click.prevent="cancel(storeContact.id)" class="cancel">Cancel</button>
             <button v-on:click.prevent="store" class="submit">Submit</button>
             </div>
         </form>
+       
         </div>
         
        </div>
- 
+
     </div>
 </template>
 <script>
@@ -36,13 +37,14 @@ export default {
            storeContacts:[],
            storeNum:{
                contact:"",
-               id:uniqueId('todo-')
+               id:uniqueId('todo-'),
+             
             
               
            },
-           editMode:false,
-   
-           
+         
+      
+           editMode:false
         
 
        }
@@ -54,13 +56,14 @@ export default {
     if(this.storeNum.contact==""){
        return null
          }else{
-             this.storeContacts.push({contacts:this.storeNum.contact,id:uniqueId('todo-')});
+             this.storeContacts.push({contact:this.storeNum.contact,id:uniqueId('todo-')});
           this.storeNum = {
          contact:"",
          
          }
+         }
     }
-    },
+   ,
     del:function(i){
           const itemIndex = this.storeContacts.findIndex(item => item.id === i)
           this.storeContacts.splice(itemIndex,1)
@@ -68,18 +71,24 @@ export default {
    ,
    
    cancel:function(Key){
-   const found = this.storeContacts.filter(element => element.Key !== Key);
- console.log(found)
-   if(found)
-   {this.editMode=false}
-   
+       
+   const found = this.storeContacts.find(element => element.id === Key);
+   if(found){
+       this.editMode=false
+   }
+   }
+  
+  
+  
 
   
 /*const found=this.storeContacts.findIndex(something)*/
   
-   },
+   ,
    edi:function(Key){
+       this.editMode=!this.editMode
     const found = this.storeContacts.filter(element => element.id === Key)
+   
    if (found)
    {this.editMode=true}
   
@@ -97,14 +106,13 @@ export default {
           this.editMode=false;
       
     
-   },
+   }
     
      
  
    
  
-   },
-
+   }
 }
 
 

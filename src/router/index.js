@@ -6,6 +6,7 @@ import Home from "../components/Home"
 import People from "../components/People"
 import Contact from "../components/Contact"
 import Category from "../components/category"
+import Accordian from "../components/accordian"
 Vue.use(VueRouter)
 
  const router= new VueRouter(
@@ -40,6 +41,11 @@ Vue.use(VueRouter)
                 path:"/category",
                 component:Category,
                 name:"Category"
+            },
+            {
+                path:"/accordian",
+                component:Accordian,
+                name:"Accordian"
             }
         ]
     }
